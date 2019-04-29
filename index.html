@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Wifi relay </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/ico" href="favicon.ico">
+</head>
+<body>
+<header>
+<ul>
+
+  <li><p>ESP8266 Wifi domofon v 0.1</p></li>
+  <li><a href="settings.html">Настройки Wifi</a></li>
+
+</ul>    
+
+</header>
+ <div>
+    <div>
+      <div class="b_title">
+      <button class="simple-btn" onclick="opendoor()">Открыть дверь</button>
+      </div>
+      <div class="b_title">
+      <img src='http://192.168.1.116:8084/stream.mjpg' width=640 height=480></img>
+      </div>
+    </div>
+ </div>
+<footer>&copy; Andrey Koryagin 2017. Ukraine, Kremenchug. Alexey Khomutnikov 2018. Russia, Ussuriisk.</footer>
+<script type="text/javascript">
+function loadJSON(json_url, callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', json_url, true);
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            callback(xobj.responseText);
+          }
+    };
+    xobj.send(null);
+}
+
+ function opendoor() {
+  url = 'opendoor';
+  loadJSON(url, function(response) {
+  //alert(response);      
+    //var json_obj = JSON.parse(response);
+  //alert(response);
+  });
+} 
+</script>
+</body>
+</html>
+
